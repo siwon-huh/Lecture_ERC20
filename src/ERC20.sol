@@ -85,10 +85,12 @@ contract ERC20 {
             balances[_from] -= _value;
             balances[_to] += _value;
         }
-        
+
         emit Transfer(_from, _to, _value);
     }
 
+
+    // mint & burn -> not in ERC, but extension that most tokens use
     function _mint(address _owner, uint256 _value) internal {
         require(_owner != address(0), "mint to the zero address");
         _totalSupply += _value;
